@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore India —  Pallavi Travel Destinations</title>
+  <meta name="description"
+    content="Explore India travel destinations: Jaipur, Goa, Manali, Kerala. Filter by region and style, see best time to visit, budgets, and plan your trip." />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="min-h-screen bg-soft text-slate-900">
+  <!-- Top Nav -->
+  <header class="sticky top-0 z-30 border-b border-white/40 bg-white/70 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <a href="#" class="flex items-center gap-2 font-semibold tracking-tight">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-white">IN</span>
+        <span class="text-lg">Explore India</span>
+      </a>
+
+      <nav class="hidden items-center gap-6 md:flex text-sm">
+        <a class="text-slate-700 hover:text-slate-950" href="#destinations">Destinations</a>
+        <a class="text-slate-700 hover:text-slate-950" href="#best-time">Best Time</a>
+        <a class="text-slate-700 hover:text-slate-950" href="#budget">Budget</a>
+        <a class="text-slate-700 hover:text-slate-950" href="#plan">Plan Trip</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <button id="openPlanner"
+          class="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800 focus-ring"
+          type="button">
+          Plan Your Trip
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative">
+    <div class="mx-auto grid max-w-6xl gap-8 px-4 py-10 md:grid-cols-2 md:items-center md:py-14">
+      <div>
+        <p
+          class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-medium text-slate-700">
+          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+          Beginner-friendly travel homepage • Responsive UI
+        </p>
+        <h1 class="mt-4 text-4xl font-extrabold tracking-tight md:text-5xl">
+          Discover iconic places across <span class="text-emerald-600">India</span>
+        </h1>
+        <p class="mt-4 max-w-prose text-slate-700">
+          Explore culture, beaches, mountains, and nature. Filter destinations, check best time to visit, estimate
+          budgets, and plan a trip in minutes.
+        </p>
+
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+          <a href="#destinations"
+            class="inline-flex items-center justify-center rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-700 focus-ring">
+            Browse Destinations
+          </a>
+          <button id="scrollToPlan"
+            class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white/70 px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-white focus-ring"
+            type="button">
+            Quick Planner
+          </button>
+        </div>
+
+        <!-- Quick stats -->
+        <div class="mt-8 grid grid-cols-3 gap-3">
+          <div class="rounded-2xl border border-white/50 bg-white/70 p-4">
+            <div class="text-2xl font-extrabold" id="statCount">4</div>
+            <div class="mt-1 text-xs text-slate-600">Featured destinations</div>
+          </div>
+          <div class="rounded-2xl border border-white/50 bg-white/70 p-4">
+            <div class="text-2xl font-extrabold">North/South</div>
+            <div class="mt-1 text-xs text-slate-600">Region filters</div>
+          </div>
+          <div class="rounded-2xl border border-white/50 bg-white/70 p-4">
+            <div class="text-2xl font-extrabold">₹</div>
+            <div class="mt-1 text-xs text-slate-600">Budget estimates</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero image collage -->
+      <div class="relative">
+        <div
+          class="absolute -inset-2 -z-10 rounded-[2rem] bg-gradient-to-br from-emerald-500/20 via-blue-500/15 to-amber-500/20 blur-2xl">
+        </div>
+        <div class="grid gap-3 rounded-[2rem] border border-white/60 bg-white/60 p-3 backdrop-blur md:gap-4 md:p-4">
+          <div class="grid grid-cols-2 gap-3 md:gap-4">
+            <figure class="relative overflow-hidden rounded-2xl">
+              <img class="h-44 w-full object-cover" alt="Taj Mahal"
+                src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=70"
+                loading="lazy" />
+              <figcaption
+                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 text-xs font-semibold text-white">
+                Taj Mahal • Agra</figcaption>
+            </figure>
+            <figure class="relative overflow-hidden rounded-2xl">
+              <img class="h-44 w-full object-cover" alt="Goa beach"
+                src="https://images.unsplash.com/photo-1587922546307-776227941871?auto=format&fit=crop&w=1200&q=70"
+                loading="lazy" />
+              <figcaption
+                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 text-xs font-semibold text-white">
+                Beaches • Goa</figcaption>
+            </figure>
+          </div>
+          <div class="grid grid-cols-3 gap-3 md:gap-4">
+            <figure class="relative overflow-hidden rounded-2xl col-span-2">
+              <img class="h-44 w-full object-cover" alt="Kerala backwaters"
+                src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1400&q=70"
+                loading="lazy" />
+              <figcaption
+                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 text-xs font-semibold text-white">
+                Nature • Kerala</figcaption>
+            </figure>
+            <figure class="relative overflow-hidden rounded-2xl">
+              <img class="h-44 w-full object-cover" alt="Manali mountains"
+                src="https://images.unsplash.com/photo-1566837497312-7be4ec84296b?auto=format&fit=crop&w=1200&q=70"
+                loading="lazy" />
+              <figcaption
+                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 text-xs font-semibold text-white">
+                Mountains • Manali</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destinations + Filters -->
+  <main class="mx-auto max-w-6xl px-4 pb-16">
+    <section id="destinations" class="pt-6 md:pt-10">
+      <div class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+        <div>
+          <h2 class="text-2xl font-bold tracking-tight">Featured destinations</h2>
+          <p class="mt-1 text-slate-700">Filter by region or trip style. Tap a card for details.</p>
+        </div>
+
+        <div class="w-full md:w-auto">
+          <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+            <div class="flex flex-wrap gap-2" aria-label="Filters">
+              <button
+                class="filterBtn rounded-xl border border-slate-200 bg-white/70 px-3 py-2 text-sm font-semibold hover:bg-white focus-ring"
+                data-filter="all" type="button">All</button>
+              <button
+                class="filterBtn rounded-xl border border-slate-200 bg-white/70 px-3 py-2 text-sm font-semibold hover:bg-white focus-ring"
+                data-filter="north" type="button">North</button>
+              <button
+                class="filterBtn rounded-xl border border-slate-200 bg-white/70 px-3 py-2 text-sm font-semibold hover:bg-white focus-ring"
+                data-filter="south" type="button">South</button>
+              <button
+                class="filterBtn rounded-xl border border-slate-200 bg-white/70 px-3 py-2 text-sm font-semibold hover:bg-white focus-ring"
+                data-filter="beach" type="button">Beach</button>
+              <button
+                class="filterBtn rounded-xl border border-slate-200 bg-white/70 px-3 py-2 text-sm font-semibold hover:bg-white focus-ring"
+                data-filter="hill" type="button">Hill Station</button>
+              <button
+                class="filterBtn rounded-xl border border-slate-200 bg-white/70 px-3 py-2 text-sm font-semibold hover:bg-white focus-ring"
+                data-filter="culture" type="button">Culture</button>
+              <button
+                class="filterBtn rounded-xl border border-slate-200 bg-white/70 px-3 py-2 text-sm font-semibold hover:bg-white focus-ring"
+                data-filter="nature" type="button">Nature</button>
+            </div>
+
+            <div class="sm:ml-2">
+              <label class="sr-only" for="search">Search destinations</label>
+              <div class="relative">
+                <input id="search"
+                  class="w-full sm:w-64 rounded-xl border border-slate-200 bg-white/70 px-10 py-2 text-sm focus-ring"
+                  placeholder="Search (e.g., Goa)" />
+                <span class="pointer-events-none absolute left-3 top-2.5 text-slate-500" aria-hidden="true">⌕</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-2 text-xs text-slate-600" id="resultsText">Showing all destinations.</div>
+        </div>
+      </div>
+
+      <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" id="cardsGrid">
+        <!-- Card: Jaipur -->
+        <article
+          class="destination lift group overflow-hidden rounded-2xl border border-white/60 bg-white/70 backdrop-blur"
+          data-tags="north culture" data-name="jaipur" data-budget="12000" data-best="Oct–Mar" data-vibe="Culture"
+          data-location="Rajasthan">
+          <div class="relative">
+            <img class="h-40 w-full object-cover" alt="Jaipur"
+              src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1200&q=70"
+              loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent opacity-90"></div>
+            <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-2">
+              <div>
+                <h3 class="text-lg font-extrabold text-white">Jaipur</h3>
+                <p class="text-xs text-white/85">Culture • Pink City</p>
+              </div>
+              <button
+                class="likeBtn rounded-xl bg-white/15 px-3 py-2 text-xs font-semibold text-white backdrop-blur hover:bg-white/25 focus-ring"
+                type="button" aria-label="Like Jaipur">❤ <span class="likeCount">0</span></button>
+            </div>
+          </div>
+          <div class="p-4">
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="rounded-full bg-amber-100 px-2 py-1 font-semibold text-amber-800">North</span>
+              <span class="rounded-full bg-rose-100 px-2 py-1 font-semibold text-rose-800">Culture</span>
+            </div>
+            <p class="mt-3 text-sm text-slate-700">Forts, bazaars, and royal palaces. Great for history + food.</p>
+            <div class="mt-4 flex items-center justify-between text-sm">
+              <div class="text-slate-600">From <span class="font-extrabold text-slate-900">₹12k</span></div>
+              <button
+                class="detailsBtn rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold hover:bg-slate-50 focus-ring"
+                type="button">View Details</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card: Goa -->
+        <article
+          class="destination lift group overflow-hidden rounded-2xl border border-white/60 bg-white/70 backdrop-blur"
+          data-tags="west beach" data-name="goa" data-budget="18000" data-best="Nov–Feb" data-vibe="Beaches"
+          data-location="Goa">
+          <div class="relative">
+            <img class="h-40 w-full object-cover" alt="Goa"
+              src="https://images.unsplash.com/photo-1544551763-cedce07c6c06?auto=format&fit=crop&w=1200&q=70"
+              loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent opacity-90"></div>
+            <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-2">
+              <div>
+                <h3 class="text-lg font-extrabold text-white">Goa</h3>
+                <p class="text-xs text-white/85">Beaches • Sunsets</p>
+              </div>
+              <button
+                class="likeBtn rounded-xl bg-white/15 px-3 py-2 text-xs font-semibold text-white backdrop-blur hover:bg-white/25 focus-ring"
+                type="button" aria-label="Like Goa">❤ <span class="likeCount">0</span></button>
+            </div>
+          </div>
+          <div class="p-4">
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="rounded-full bg-sky-100 px-2 py-1 font-semibold text-sky-800">Beach</span>
+              <span class="rounded-full bg-indigo-100 px-2 py-1 font-semibold text-indigo-800">Nightlife</span>
+            </div>
+            <p class="mt-3 text-sm text-slate-700">Beach shacks, water sports, cafes, and laid-back vibes.</p>
+            <div class="mt-4 flex items-center justify-between text-sm">
+              <div class="text-slate-600">From <span class="font-extrabold text-slate-900">₹18k</span></div>
+              <button
+                class="detailsBtn rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold hover:bg-slate-50 focus-ring"
+                type="button">View Details</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card: Manali -->
+        <article
+          class="destination lift group overflow-hidden rounded-2xl border border-white/60 bg-white/70 backdrop-blur"
+          data-tags="north hill" data-name="manali" data-budget="15000" data-best="Mar–Jun, Dec–Feb"
+          data-vibe="Mountains" data-location="Himachal Pradesh">
+          <div class="relative">
+            <img class="h-40 w-full object-cover" alt="Manali"
+              src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1200&q=70"
+              loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent opacity-90"></div>
+            <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-2">
+              <div>
+                <h3 class="text-lg font-extrabold text-white">Manali</h3>
+                <p class="text-xs text-white/85">Mountains • Snow</p>
+              </div>
+              <button
+                class="likeBtn rounded-xl bg-white/15 px-3 py-2 text-xs font-semibold text-white backdrop-blur hover:bg-white/25 focus-ring"
+                type="button" aria-label="Like Manali">❤ <span class="likeCount">0</span></button>
+            </div>
+          </div>
+          <div class="p-4">
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="rounded-full bg-emerald-100 px-2 py-1 font-semibold text-emerald-800">Hill Station</span>
+              <span class="rounded-full bg-blue-100 px-2 py-1 font-semibold text-blue-800">North</span>
+            </div>
+            <p class="mt-3 text-sm text-slate-700">Perfect for mountain views, cafés, and adventure activities.</p>
+            <div class="mt-4 flex items-center justify-between text-sm">
+              <div class="text-slate-600">From <span class="font-extrabold text-slate-900">₹15k</span></div>
+              <button
+                class="detailsBtn rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold hover:bg-slate-50 focus-ring"
+                type="button">View Details</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card: Kerala -->
+        <article
+          class="destination lift group overflow-hidden rounded-2xl border border-white/60 bg-white/70 backdrop-blur"
+          data-tags="south nature" data-name="kerala" data-budget="22000" data-best="Sep–Mar" data-vibe="Nature"
+          data-location="Kerala">
+          <div class="relative">
+            <img class="h-40 w-full object-cover" alt="Kerala"
+              src="https://images.unsplash.com/photo-1600861195091-690c92f1d2a7?auto=format&fit=crop&w=1200&q=70"
+              loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent opacity-90"></div>
+            <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-2">
+              <div>
+                <h3 class="text-lg font-extrabold text-white">Kerala</h3>
+                <p class="text-xs text-white/85">Nature • Backwaters</p>
+              </div>
+              <button
+                class="likeBtn rounded-xl bg-white/15 px-3 py-2 text-xs font-semibold text-white backdrop-blur hover:bg-white/25 focus-ring"
+                type="button" aria-label="Like Kerala">❤ <span class="likeCount">0</span></button>
+            </div>
+          </div>
+          <div class="p-4">
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="rounded-full bg-lime-100 px-2 py-1 font-semibold text-lime-800">Nature</span>
+              <span class="rounded-full bg-teal-100 px-2 py-1 font-semibold text-teal-800">South</span>
+            </div>
+            <p class="mt-3 text-sm text-slate-700">Backwaters, houseboats, tea gardens, and calm coastal towns.</p>
+            <div class="mt-4 flex items-center justify-between text-sm">
+              <div class="text-slate-600">From <span class="font-extrabold text-slate-900">₹22k</span></div>
+              <button
+                class="detailsBtn rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold hover:bg-slate-50 focus-ring"
+                type="button">View Details</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Best Time to Visit -->
+    <section id="best-time" class="mt-12">
+      <div class="rounded-[2rem] border border-white/60 bg-white/70 p-6 backdrop-blur md:p-8">
+        <div class="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+          <div>
+            <h2 class="text-2xl font-bold tracking-tight">Best time to visit</h2>
+            <p class="mt-1 text-slate-700">Quick seasonal guidance for popular trip types.</p>
+          </div>
+          <div class="text-xs text-slate-600">Tip: Open any destination and you’ll also see its best season.</div>
+        </div>
+
+        <div class="mt-6 grid gap-4 md:grid-cols-3">
+          <div class="rounded-2xl border border-slate-200 bg-white p-5">
+            <div class="text-sm font-bold">🏰 Culture cities</div>
+            <p class="mt-2 text-sm text-slate-700">Oct–Mar (pleasant weather for walking tours).</p>
+            <div class="mt-3 text-xs text-slate-600">Examples: Jaipur, Delhi, Agra</div>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white p-5">
+            <div class="text-sm font-bold">🏝 Beaches</div>
+            <p class="mt-2 text-sm text-slate-700">Nov–Feb (cooler evenings + clear skies).</p>
+            <div class="mt-3 text-xs text-slate-600">Examples: Goa, Gokarna, Andaman</div>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white p-5">
+            <div class="text-sm font-bold">🏔 Hill stations</div>
+            <p class="mt-2 text-sm text-slate-700">Mar–Jun (summer escape) or Dec–Feb (snow).</p>
+            <div class="mt-3 text-xs text-slate-600">Examples: Manali, Shimla, Gulmarg</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Budget -->
+    <section id="budget" class="mt-12">
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="rounded-[2rem] border border-white/60 bg-white/70 p-6 backdrop-blur md:p-8">
+          <h2 class="text-2xl font-bold tracking-tight">Budget guide</h2>
+          <p class="mt-1 text-slate-700">Typical per-person estimates (2–4 days). Adjust for flights & hotel class.</p>
+
+          <div class="mt-6 space-y-4">
+            <div class="rounded-2xl border border-slate-200 bg-white p-5">
+              <div class="flex items-center justify-between">
+                <div class="text-sm font-bold">Budget</div>
+                <div class="text-sm font-extrabold">₹8k–₹15k</div>
+              </div>
+              <p class="mt-2 text-sm text-slate-700">Hostels, local transport, street food, shared activities.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-5">
+              <div class="flex items-center justify-between">
+                <div class="text-sm font-bold">Comfort</div>
+                <div class="text-sm font-extrabold">₹15k–₹30k</div>
+              </div>
+              <p class="mt-2 text-sm text-slate-700">3-star stays, a few paid experiences, cabs sometimes.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-5">
+              <div class="flex items-center justify-between">
+                <div class="text-sm font-bold">Premium</div>
+                <div class="text-sm font-extrabold">₹30k+</div>
+              </div>
+              <p class="mt-2 text-sm text-slate-700">Luxury hotels, private tours, fine dining, extra shopping.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-[2rem] border border-white/60 bg-white/70 p-6 backdrop-blur md:p-8">
+          <h2 class="text-2xl font-bold tracking-tight">Popular picks</h2>
+          <p class="mt-1 text-slate-700">Based on what you like, we can suggest a trip plan.</p>
+
+          <div class="mt-6 grid gap-4 sm:grid-cols-2">
+            <button class="presetBtn lift rounded-2xl border border-slate-200 bg-white p-5 text-left focus-ring"
+              type="button" data-preset="weekend">
+              <div class="text-sm font-bold">Weekend getaway</div>
+              <div class="mt-1 text-xs text-slate-600">2–3 days • quick refresh</div>
+              <div class="mt-3 text-sm font-semibold text-emerald-700">Try: Jaipur / Goa</div>
+            </button>
+            <button class="presetBtn lift rounded-2xl border border-slate-200 bg-white p-5 text-left focus-ring"
+              type="button" data-preset="nature">
+              <div class="text-sm font-bold">Nature + calm</div>
+              <div class="mt-1 text-xs text-slate-600">3–5 days • slow travel</div>
+              <div class="mt-3 text-sm font-semibold text-emerald-700">Try: Kerala</div>
+            </button>
+            <button class="presetBtn lift rounded-2xl border border-slate-200 bg-white p-5 text-left focus-ring"
+              type="button" data-preset="adventure">
+              <div class="text-sm font-bold">Mountains + adventure</div>
+              <div class="mt-1 text-xs text-slate-600">3–5 days • thrill</div>
+              <div class="mt-3 text-sm font-semibold text-emerald-700">Try: Manali</div>
+            </button>
+            <button class="presetBtn lift rounded-2xl border border-slate-200 bg-white p-5 text-left focus-ring"
+              type="button" data-preset="beach">
+              <div class="text-sm font-bold">Beach break</div>
+              <div class="mt-1 text-xs text-slate-600">3–4 days • sunsets</div>
+              <div class="mt-3 text-sm font-semibold text-emerald-700">Try: Goa</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Planner / CTA -->
+    <section id="plan" class="mt-12">
+      <div
+        class="rounded-[2rem] border border-white/60 bg-gradient-to-br from-slate-900 to-slate-800 p-6 text-white md:p-10">
+        <div class="grid gap-8 md:grid-cols-2 md:items-center">
+          <div>
+            <h2 class="text-3xl font-extrabold tracking-tight">Plan your trip</h2>
+            <p class="mt-2 text-white/80">Choose your style, region, days, and budget. We’ll suggest the best match.</p>
+
+            <div class="mt-6 grid gap-3 sm:grid-cols-2">
+              <div>
+                <label class="text-xs font-semibold text-white/80" for="region">Region</label>
+                <select id="region"
+                  class="mt-1 w-full rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-sm text-white focus-ring">
+                  <option value="any">Any</option>
+                  <option value="north">North</option>
+                  <option value="south">South</option>
+                </select>
+              </div>
+              <div>
+                <label class="text-xs font-semibold text-white/80" for="type">Trip type</label>
+                <select id="type"
+                  class="mt-1 w-full rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-sm text-white focus-ring">
+                  <option value="any">Any</option>
+                  <option value="culture">Culture</option>
+                  <option value="beach">Beach</option>
+                  <option value="hill">Hill Station</option>
+                  <option value="nature">Nature</option>
+                </select>
+              </div>
+              <div>
+                <label class="text-xs font-semibold text-white/80" for="days">Days</label>
+                <input id="days" type="number" min="2" max="10" value="4"
+                  class="mt-1 w-full rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-sm text-white placeholder:text-white/50 focus-ring" />
+              </div>
+              <div>
+                <label class="text-xs font-semibold text-white/80" for="budgetInput">Budget (₹)</label>
+                <input id="budgetInput" type="number" min="5000" step="1000" value="20000"
+                  class="mt-1 w-full rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-sm text-white placeholder:text-white/50 focus-ring" />
+              </div>
+            </div>
+
+            <div class="mt-4 flex flex-col gap-3 sm:flex-row">
+              <button id="runPlanner"
+                class="rounded-xl bg-emerald-500 px-5 py-3 text-sm font-extrabold text-slate-900 hover:bg-emerald-400 focus-ring"
+                type="button">
+                Get Suggestions
+              </button>
+              <button id="resetPlanner"
+                class="rounded-xl border border-white/15 bg-white/10 px-5 py-3 text-sm font-semibold text-white hover:bg-white/15 focus-ring"
+                type="button">
+                Reset
+              </button>
+            </div>
+
+            <p class="mt-3 text-xs text-white/60">Note: Budget is an estimate for 2–4 days (excluding flights).
+              Suggestions update instantly.</p>
+          </div>
+
+          <div class="rounded-2xl border border-white/15 bg-white/10 p-5 md:p-6">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="text-sm font-bold text-white/90">Your suggestions</div>
+                <div class="mt-1 text-xs text-white/60" id="suggestionsMeta">Based on 4 destinations in this demo.</div>
+              </div>
+              <a href="#destinations"
+                class="text-xs font-semibold text-white/80 underline underline-offset-4 hover:text-white">View cards</a>
+            </div>
+
+            <div class="mt-4 space-y-3" id="suggestionsList">
+              <div class="rounded-xl border border-white/10 bg-black/10 p-4 text-sm text-white/80">Select preferences
+                and click “Get Suggestions”.</div>
+            </div>
+
+            <div class="mt-5 rounded-xl border border-white/10 bg-black/10 p-4">
+              <div class="flex items-center justify-between text-xs text-white/60">
+                <span>Estimated spend</span>
+                <span id="estCost" class="text-sm font-extrabold text-white">—</span>
+              </div>
+              <div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-white/10">
+                <div id="budgetBar" class="h-full w-0 rounded-full bg-emerald-400 transition-all"></div>
+              </div>
+              <div class="mt-2 text-[11px] text-white/60">Bar shows how close your budget is to the selected suggestion.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-12 pb-10">
+      <div
+        class="flex flex-col items-start justify-between gap-4 rounded-[2rem] border border-white/60 bg-white/70 p-6 backdrop-blur md:flex-row md:items-center">
+        <div>
+          <div class="text-sm font-bold">Explore India — Frontend demo</div>
+          <div class="mt-1 text-xs text-slate-600">Built with Tailwind CDN + vanilla JavaScript. Images via Unsplash.
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <button id="shareBtn"
+            class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-xs font-semibold hover:bg-slate-50 focus-ring"
+            type="button">Copy Live Preview Link</button>
+          <a class="rounded-xl bg-slate-900 px-4 py-2 text-xs font-semibold text-white hover:bg-slate-800 focus-ring"
+            href="#plan">Plan a Trip</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Details Modal -->
+  <div id="modal" class="fixed inset-0 z-50 hidden">
+    <div id="modalOverlay" class="absolute inset-0 bg-black/50"></div>
+    <div
+      class="relative mx-auto mt-10 w-[92%] max-w-xl rounded-[1.5rem] border border-white/20 bg-white p-5 shadow-2xl md:mt-16 md:p-6">
+      <div class="flex items-start justify-between gap-3">
+        <div>
+          <h3 id="modalTitle" class="text-xl font-extrabold">Destination</h3>
+          <p id="modalSubtitle" class="mt-1 text-sm text-slate-600">Subtitle</p>
+        </div>
+        <button id="closeModal"
+          class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold hover:bg-slate-50 focus-ring"
+          type="button">Close</button>
+      </div>
+
+      <div class="mt-4 overflow-hidden rounded-2xl">
+        <img id="modalImg" class="h-52 w-full object-cover" alt="Destination photo" src="" />
+      </div>
+
+      <div class="mt-4 grid gap-3 sm:grid-cols-2">
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <div class="text-xs font-semibold text-slate-600">Best time to visit</div>
+          <div id="modalBest" class="mt-1 text-sm font-extrabold">—</div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <div class="text-xs font-semibold text-slate-600">Budget (estimate)</div>
+          <div id="modalBudget" class="mt-1 text-sm font-extrabold">—</div>
+        </div>
+      </div>
+
+      <div class="mt-4 rounded-2xl border border-slate-200 bg-white p-4">
+        <div class="text-xs font-semibold text-slate-600">Why go?</div>
+        <p id="modalWhy" class="mt-2 text-sm text-slate-700">—</p>
+      </div>
+
+      <div class="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <button id="addToPlan"
+          class="rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700 focus-ring"
+          type="button">Add to suggestions</button>
+        <a href="#plan" id="jumpToPlanner" class="text-sm font-semibold text-slate-900 underline underline-offset-4">Go
+          to Planner</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
